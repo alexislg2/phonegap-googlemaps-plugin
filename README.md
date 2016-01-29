@@ -1,28 +1,16 @@
-phonegap-googlemaps-plugin
+Cordova GoogleMaps plugin <br>for iOS and Android
 ==========================
-This plugin helps you leverage [Google Maps Android SDK v2](https://developers.google.com/maps/documentation/android/) and [Google Maps SDK for iOS](https://developers.google.com/maps/documentation/ios/) with your JavaScript.
+This plugin is a thin wrapper for [Google Maps Android SDK v2](https://developers.google.com/maps/documentation/android/) and [Google Maps SDK for iOS](https://developers.google.com/maps/documentation/ios/).
 Both [PhoneGap](http://phonegap.com/) and [Apache Cordova](http://cordova.apache.org/) are supported.
 
+###Update status
 
-![ScreenShot](https://googledrive.com/host/0B1ECfqTCcLE8ZVQ1djlWNThISEE/phonegap-googlemaps-plugin_small.png)
+**v.1.3.4 - 15/10/2015**
 
+- Updated Google Maps SDK for iOS to 1.10.4
+ - Will fix some bugs on iOS 9
 
-###Example
-You can see an example here. [phonegap-googlemaps-plugin-v1.2.5.apk](https://googledrive.com/host/0B1ECfqTCcLE8TXlUQUJXMmJpNGs/phonegap-googlemaps-plugin-v1.2.5.apk)
-```bash
-$> adb install phonegap-googlemaps-plugin-v1.2.5.apk
-```
-
-![image](https://googledrive.com/host/0B1ECfqTCcLE8ZVQ1djlWNThISEE/example-v1.2.5.gif)
-
-### Join the official community
-New versions will be announced through the official community. Stay tuned!
-
-<a href="https://plus.google.com/u/0/communities/117427728522929652853"><img src="https://googledrive.com/host/0B1ECfqTCcLE8Yng5OUZIY3djUzg/Red-signin_Google_base_44dp.png" height="40"></a>
-
-###What's up?
-
-v.1.3.3
+**v.1.3.3**
 
 **Added**
 
@@ -46,88 +34,13 @@ marker.setZIndex()
  - [623](https://github.com/wf9a5m75/phonegap-googlemaps-plugin/issues/623)
 
 
-v.1.3.2
-- Updated Google Maps SDK to 1.10.3 - should avoid plist problems on Xcode 7 now
-
-v.1.3.1
-- Fixed #630 (no google-volley dependencies anymore, increase start-up speed)
-- Better URL Support on iOS for KML and GroundOverlay (support for any valid NSURL resource)
-- Changed all http calls to https
-- Updated Google Maps iOS SDK to 1.10.2
-
-**INFORMATION**
-
-In order to install the new version, you have to:
-
-1) Delete plugin 
-> cordova plugin rm plugin.google.maps
-
-2) Delete Google Maps iOS SDK 
-> cordova plugin rm com.googlemaps.ios
-
-3) Delete plugin.http.request
-> cordova plugin rm plugin.http.request
-
-3) Re-Install plugin from master (follow wiki for Mac/Linux/Windows)
-> cordova plugin add https://github.com/wf9a5m75/phonegap-googlemaps-plugin --variable API_KEY_FOR_ANDROID="YOUR_KEY" --variable API_KEY_FOR_IOS="YOUR_KEY"
-
-If you have some weird compiling errors, you're probably missing some linked frameworks. Set the Target Membership
-https://www.youtube.com/watch?v=gr0QrEShPbQ
-or just delete your iOS platform and re-install.
-
-Required XCode Version is 6.3+ (due to ABI changes)
-The minimum target iOS version for Google Maps SDK for iOS is now 7.0. Version 6.0 is no longer supported.
-This release requires the following additional dependencies in your project: Accelerate.framework, CoreBluetooth.framework, CoreGraphics.framework, Security.framework
-
-This will be set automatically when you install with CLI.
-
-BITCODE isn't supported currently. Google Maps hasn't update now. Just disable Bitcode in XCode 7 when you get compile errors.
-
-v.1.2.9
-
-**Add:**
-
-- Implement maxWidth for Marker InfoWindow https://github.com/wf9a5m75/phonegap-googlemaps-plugin/pull/503
-
-v.1.2.8
-
-**Fixes**
-
-- Support for cordova-android 4.x (Cordova 5.x) -> many thanks to @wolf-s
-- Fixed bug with base64 icons, icons from file
-- Fixed https://github.com/wf9a5m75/phonegap-googlemaps-plugin/issues/591
-- Fixed play-service dependency https://github.com/wf9a5m75/phonegap-googlemaps-plugin/pull/567
-- Fixed plugin init on new cordova-android version
-- Compatibility with https://github.com/crosswalk-project/cordova-plugin-crosswalk-webview (have a look at the wiki and the issues)
-- Fixed https://github.com/wf9a5m75/phonegap-googlemaps-plugin/pull/551
-- Fixed crash on android when marker is not available https://github.com/wf9a5m75/phonegap-googlemaps-plugin/pull/529
-- Fixed .off() listener bug https://github.com/wf9a5m75/phonegap-googlemaps-plugin/pull/517
-
-**Added**
-
-- pass "params" to marker and retrieve with marker.getParams() https://github.com/wf9a5m75/phonegap-googlemaps-plugin/issues/54
-
-v.1.2.7
-- Support for cordova-android 4.x (Cordova 5.x) -> many thanks to @wolf-s
-
-v1.2.5
-- Add : The `opacity` and `tileSize` properties has been added to `map.addTileOverlay()`
-- Add : Add marker animations: `DROP` and `BOUNCE`
-- Add : Add INDOOR_BUILDING_FOCUSED & INDOOR_LEVEL_ACTIVATED events for indoor map events.
-- Add plugin.google.maps.geometry.encoding.decodePath() & plugin.google.maps.geometry.encoding.encodePath()
-- Update : v1.2.5 uses Google Play Services version 23.
-- Added settings for watchdogtimer / complete rewrite of remote marker downloads
-- The `icon` property of the `map.addMarker()` accepts `file://` & `cdvfile://` protocol, and also the absolute file path.
-- Loading KML files from `file://` & `cdvfile://` protocol.
-- And many bugs are fixed.
-
 Check out the [release notes](https://github.com/wf9a5m75/phonegap-googlemaps-plugin/wiki/Release-Notes).
 
 ###Documentation
 
 * Introduction
-  * <a href="https://github.com/wf9a5m75/phonegap-googlemaps-plugin/wiki/How-different-are-the-JavaScript-APIs-%28web%29-and-the-mobile-SDKs-%28native%29">How different are the JavaScript APIs (web) and the mobile SDKs (native)</a>
-  * [Why use this plugin?](https://github.com/wf9a5m75/phonegap-googlemaps-plugin/wiki/Why-use-this-plugin%3F)
+  * <a href="https://github.com/wf9a5m75/phonegap-googlemaps-plugin/wiki/How-different-are-the-JavaScript-APIs-%28web%29-and-the-mobile-SDKs-%28native%29">Difference between JavaScript APIs (web) and the mobile SDKs (native)</a>
+  * [Why should I use this plugin?](https://github.com/wf9a5m75/phonegap-googlemaps-plugin/wiki/Why-use-this-plugin%3F)
   * [Java Objective C or JavaScript. Which one do you like?](https://github.com/wf9a5m75/phonegap-googlemaps-plugin/wiki/Java-Objective-C-or-JavaScript.-Which-one-do-you-like%3F)
 
 
@@ -139,7 +52,7 @@ Check out the [release notes](https://github.com/wf9a5m75/phonegap-googlemaps-pl
     * [PhoneGap Usage](https://github.com/wf9a5m75/phonegap-googlemaps-plugin/wiki/Phonegap-Usage)
     * [Tutorial for Monaca (Cloud building service)](https://github.com/wf9a5m75/phonegap-googlemaps-plugin/wiki/Tutorial-for-Monaca)
   * Upgrade
-    * [How to upgrade the Google Maps SDK for iOS to the latest version?](https://github.com/wf9a5m75/phonegap-googlemaps-plugin/wiki/How-to-upgrade-the-Google-Maps-SDK-for-iOS-to-the-latest-version%3F)
+    * Just re-install this plugin
 * [Terms of Services](https://github.com/wf9a5m75/phonegap-googlemaps-plugin/wiki/Terms-of-Services)
 * [Map](https://github.com/wf9a5m75/phonegap-googlemaps-plugin/wiki/Map)
   * ![img](https://raw.github.com/wf9a5m75/phonegap-googlemaps-plugin/Images/screencapture/animateCamera.gif)
@@ -220,9 +133,21 @@ Check out the [release notes](https://github.com/wf9a5m75/phonegap-googlemaps-pl
   * <img src="https://googledrive.com/host/0B1ECfqTCcLE8MU1CbUtNVUs3TEE/direction.gif" height="250">
   * Launch the navigation application
 
-
 -----
 
 ##Crosswalk
 If you want to use crosswalk, just follow this easy documentation. 
 [Install Plugin with Crosswalk](https://github.com/wf9a5m75/phonegap-googlemaps-plugin/wiki/Tutorial-for-CrossWalk-Webview-Plugin-%28Android%29)
+
+###Example
+You can see an example here. [phonegap-googlemaps-plugin-v1.2.5.apk](https://googledrive.com/host/0B1ECfqTCcLE8TXlUQUJXMmJpNGs/phonegap-googlemaps-plugin-v1.2.5.apk)
+```bash
+$> adb install phonegap-googlemaps-plugin-v1.2.5.apk
+```
+
+![image](https://googledrive.com/host/0B1ECfqTCcLE8ZVQ1djlWNThISEE/example-v1.2.5.gif)
+
+### Join the official community
+New versions will be announced through the official community. Stay tuned!
+
+<a href="https://plus.google.com/u/0/communities/117427728522929652853"><img src="https://googledrive.com/host/0B1ECfqTCcLE8Yng5OUZIY3djUzg/Red-signin_Google_base_44dp.png" height="40"></a>
