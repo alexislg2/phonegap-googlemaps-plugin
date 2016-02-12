@@ -148,17 +148,20 @@
  */
 -(void)setVisible:(CDVInvokedUrlCommand *)command
 {
-  NSString *circleKey = [command.arguments objectAtIndex:1];
-  GMSCircle *circle = [self.mapCtrl getCircleByKey: circleKey];
-  Boolean isVisible = [[command.arguments objectAtIndex:2] boolValue];
-  if (isVisible) {
-    circle.map = self.mapCtrl.map;
-  } else {
-    circle.map = nil;
-  }
-
-  CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
-  [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+  dispatch_async(dispatch_get_main_queue(), ^{
+    NSString *circleKey = [command.arguments objectAtIndex:1];
+    GMSCircle *circle = [self.mapCtrl getCircleByKey: circleKey];
+    Boolean isVisible = [[command.arguments objectAtIndex:2] boolValue];
+    if (isVisible) {
+      circle.map = self.mapCtrl.map;
+    } else {
+      circle.map = nil;
+    }
+    dispatch_async( dispatch_get_main_queue(), ^{
+      CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+      [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+    });
+  });
 }
 
 /**
